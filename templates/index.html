@@ -150,6 +150,16 @@
                 width: 100%;
             }
         }
+
+        .btn-lg {
+            padding: 0.5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            width: 75px;
+            height: 75px;
+            border-radius: 0.3rem;
+        }
+
     </style>
 
 
@@ -160,8 +170,8 @@
 </head>
 
 
-<body>
-    <div class="container py-4">
+<body style="background-color: #005A9E;">
+    <div class="container py-4" style="background-color: #005A9E;">
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid">
                 <img src="../static/assets/otis.png"
@@ -194,35 +204,33 @@
 
                     <p class=".p-3">
                         <button type="button" class="btn btn-primary btn-lg" id="btn1"
-                            onclick="document.getElementById('btn1').classList.contains('active')?document.getElementById('btn1').classList.remove('active'):document.getElementById('btn1').classList.add('active');">
+                            onclick="document.getElementById('btn1').classList.contains('btn-warning')?document.getElementById('btn1').classList.remove('btn-warning'):document.getElementById('btn1').classList.add('btn-warning');">
                             1 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn2"
-                            onclick="document.getElementById('btn2').classList.contains('active')?document.getElementById('btn2').classList.remove('active'):document.getElementById('btn2').classList.add('active');">
+                            onclick="document.getElementById('btn2').classList.contains('btn-warning')?document.getElementById('btn2').classList.remove('btn-warning'):document.getElementById('btn2').classList.add('btn-warning');">
                             2 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn3"
-                            onclick="document.getElementById('btn3').classList.contains('active')?document.getElementById('btn3').classList.remove('active'):document.getElementById('btn3').classList.add('active');">
+                            onclick="document.getElementById('btn3').classList.contains('btn-warning')?document.getElementById('btn3').classList.remove('btn-warning'):document.getElementById('btn3').classList.add('btn-warning');">
                             3 </button>
-                        <button type="button" class="btn btn-primary btn-lg" id="btn4"
-                            onclick="document.getElementById('btn4').classList.contains('active')?document.getElementById('btn4').classList.remove('active'):document.getElementById('btn4').classList.add('active');">
+                        <button type="button" class="btn btn-lg btn-secondary" id="btn4">
                             4 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn5"
-                            onclick="document.getElementById('btn5').classList.contains('active')?document.getElementById('btn5').classList.remove('active'):document.getElementById('btn5').classList.add('active');">
+                            onclick="document.getElementById('btn5').classList.contains('btn-warning')?document.getElementById('btn5').classList.remove('btn-warning'):document.getElementById('btn5').classList.add('btn-warning');">
                             5 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn6"
-                            onclick="document.getElementById('btn6').classList.contains('active')?document.getElementById('btn6').classList.remove('active'):document.getElementById('btn6').classList.add('active');">
+                            onclick="document.getElementById('btn6').classList.contains('btn-warning')?document.getElementById('btn6').classList.remove('btn-warning'):document.getElementById('btn6').classList.add('btn-warning');">
                             6 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn7"
-                            onclick="document.getElementById('btn7').classList.contains('active')?document.getElementById('btn7').classList.remove('active'):document.getElementById('btn7').classList.add('active');">
+                            onclick="document.getElementById('btn7').classList.contains('btn-warning')?document.getElementById('btn7').classList.remove('btn-warning'):document.getElementById('btn7').classList.add('btn-warning');">
                             7 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn8"
-                            onclick="document.getElementById('btn8').classList.contains('active')?document.getElementById('btn8').classList.remove('active'):document.getElementById('btn8').classList.add('active');">
+                            onclick="document.getElementById('btn8').classList.contains('btn-warning')?document.getElementById('btn8').classList.remove('btn-warning'):document.getElementById('btn8').classList.add('btn-warning');">
                             8 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn9"
-                            onclick="document.getElementById('btn9').classList.contains('active')?document.getElementById('btn9').classList.remove('active'):document.getElementById('btn9').classList.add('active');">
+                            onclick="document.getElementById('btn9').classList.contains('btn-warning')?document.getElementById('btn9').classList.remove('btn-warning'):document.getElementById('btn9').classList.add('btn-warning');">
                             9 </button>
-                        <button type="button" class="btn btn-primary btn-lg" id="btn10"> 10 </button>
+                        <button type="button" class="btn btn-primary btn-lg" id="btn10" onclick="document.getElementById('btn10').classList.contains('btn-warning')?document.getElementById('btn10').classList.remove('btn-warning'):document.getElementById('btn10').classList.add('btn-warning');"> 10 </button>
                     </p>
-                    Estimated Wait Time: 10 seconds <br /><br />
 
 
 
@@ -234,13 +242,28 @@
         </div>
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
-                <div class="h-100 p-5 text-bg-dark rounded-3">
+                <div class="h-100 p-5 rounded-3" style="background-color:#03031D">
+                    <div id="div_language">
+                        <h1 class="mb-3 text-light">Say Hey Otis <img src="../static/assets/orb.gif" alt="Orb"
+                                style="width:88px;height:66px;"></h1>
+                        <!-- <select class="form-select bg-secondary text-light" id="select_language" onchange="updateCountry()"></select> -->
+                        <!-- <select class="form-select bg-secondary text-light mt-2" id="select_dialect"></select> -->
+                    </div>
+                    <div class="p-3 mt-3" style="border: 1px solid gray; height: 60px; border-radius: 8px;">
+                        <span id="final" class="text-light"></span>
+                        <span id="interim" class="text-secondary"></span>
+                    </div>
+                    <div class="mt-4">
+                        <!-- <button class="btn" id="start">Start</button>
+                        <button class="btn" id="stop">Stop</button> -->
+                        <!-- <p id="status" class="lead mt-3 text-light" style="display: none">Listening ...</p> -->
 
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                    <img id="myImg" src="../static/assets/floor_plan.png" alt="floor_plan"
+                    <img id="myImg" src="../static/assets/floor_plan.png" alt="floor 4"
                         style="width:100%;max-width:320px">
                     &nbsp;&nbsp;&nbsp;&nbsp;tap to enlarge
 
@@ -278,6 +301,8 @@
                 </div>
             </div>
         </div>
+
+
 
 
     </div>
