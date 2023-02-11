@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JSSample</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
+
 <body>
-    
+
+    <script type="text/javascript">
+        $(function () {
+            var params = {
+                // Request parameters
+            };
+
+            $.ajax({
+                url: "https://developer-portal-api-stage.otiselevator.com/elevatorstatus/api/elevators/{unit_number}/{country_code}/v1/elevatorstatus/?customer_id={customer_id}&contract_no={contract_no}&" + $.param(params),
+                beforeSend: function (xhrObj) {
+                    // Request headers
+                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "{subscription key}");
+                },
+                type: "GET",
+                // Request body
+                data: "{body}",
+            })
+                .done(function (data) {
+                    alert("success");
+                })
+                .fail(function () {
+                    alert("error");
+                });
+        });
+    </script>
 </body>
+
 </html>
