@@ -84,7 +84,7 @@ function updateCountry() {
     select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
 }
 
-function processHeyOtis(transcript) {
+function processTranscript(transcript) {
     let processed_transcript = "";
     const word_array = transcript.split(" ");
 
@@ -101,6 +101,25 @@ function processHeyOtis(transcript) {
     }
 
     return processed_transcript;
+}
+
+function constructResponse(query) {
+    query = query.toLowerCase();
+    if (query.includes("directions") && query.includes("food") || query.includes("court")) {
+        return "Take the elevator to floor 2 when it arrives. " +
+            "When you exit the elevator, turn left and walk straight. " +
+            "You will see the food court on your right. " +
+            "Scan the QR code to take the directions with you."
+    }
+    else {
+        return ""
+    }
+}
+
+function speakResponse(response) {
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = response;
+    window.speechSynthesis.speak(msg);
 }
 
 if ("webkitSpeechRecognition" in window) {
@@ -129,10 +148,12 @@ if ("webkitSpeechRecognition" in window) {
         for (let i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
                 final_transcript += event.results[i][0].transcript;
-                final_transcript = processHeyOtis(final_transcript);
+                final_transcript = processTranscript(final_transcript);
+                let response = constructResponse(final_transcript);
+                speakResponse(response);
             } else {
                 interim_transcript += event.results[i][0].transcript;
-                interim_transcript = processHeyOtis(interim_transcript);
+                interim_transcript = processTranscript(interim_transcript);
             }
         }
 
@@ -147,6 +168,7 @@ if ("webkitSpeechRecognition" in window) {
     document.querySelector("#stop").onclick = () => {
         speechRecognition.stop();
     };
+
 } else {
     console.log("Speech Recognition Not Available");
 }
