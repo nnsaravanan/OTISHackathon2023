@@ -6,21 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-    <title>Speech To Text</title>
-
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-        crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet"> -->
+    <title>Hey Otis</title>
 
     <style>
         .container {
@@ -159,7 +145,6 @@
             height: 75px;
             border-radius: 0.3rem;
         }
-
     </style>
 
 
@@ -174,7 +159,7 @@
     <div class="container py-4" style="background-color: #005A9E;">
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid">
-                <img src="../static/assets/otis.png"
+                <img src="./assets/otis.png"
                     style="width:100%;max-width:80px; position:absolute;top:60px; right:110px">
 
 
@@ -206,13 +191,13 @@
                         <button type="button" class="btn btn-primary btn-lg" id="btn1"
                             onclick="document.getElementById('btn1').classList.contains('btn-warning')?document.getElementById('btn1').classList.remove('btn-warning'):document.getElementById('btn1').classList.add('btn-warning');">
                             1 </button>
-                        <button type="button" class="btn btn-primary btn-lg" id="btn2"
-                            onclick="document.getElementById('btn2').classList.contains('btn-warning')?document.getElementById('btn2').classList.remove('btn-warning'):document.getElementById('btn2').classList.add('btn-warning');">
+                        <button type="button" class="btn btn-lg btn-secondary" id="btn2">
                             2 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn3"
                             onclick="document.getElementById('btn3').classList.contains('btn-warning')?document.getElementById('btn3').classList.remove('btn-warning'):document.getElementById('btn3').classList.add('btn-warning');">
                             3 </button>
-                        <button type="button" class="btn btn-lg btn-secondary" id="btn4">
+                        <button type="button" class="btn btn-lg btn-primary" id="btn4"
+                            onclick="document.getElementById('btn4').classList.contains('btn-warning')?document.getElementById('btn4').classList.remove('btn-warning'):document.getElementById('btn4').classList.add('btn-warning');">
                             4 </button>
                         <button type="button" class="btn btn-primary btn-lg" id="btn5"
                             onclick="document.getElementById('btn5').classList.contains('btn-warning')?document.getElementById('btn5').classList.remove('btn-warning'):document.getElementById('btn5').classList.add('btn-warning');">
@@ -229,7 +214,9 @@
                         <button type="button" class="btn btn-primary btn-lg" id="btn9"
                             onclick="document.getElementById('btn9').classList.contains('btn-warning')?document.getElementById('btn9').classList.remove('btn-warning'):document.getElementById('btn9').classList.add('btn-warning');">
                             9 </button>
-                        <button type="button" class="btn btn-primary btn-lg" id="btn10" onclick="document.getElementById('btn10').classList.contains('btn-warning')?document.getElementById('btn10').classList.remove('btn-warning'):document.getElementById('btn10').classList.add('btn-warning');"> 10 </button>
+                        <button type="button" class="btn btn-primary btn-lg" id="btn10"
+                            onclick="document.getElementById('btn10').classList.contains('btn-warning')?document.getElementById('btn10').classList.remove('btn-warning'):document.getElementById('btn10').classList.add('btn-warning');">
+                            10 </button>
                     </p>
 
 
@@ -244,7 +231,7 @@
             <div class="col-md-6">
                 <div class="h-100 p-5 rounded-3" style="background-color:#03031D">
                     <div id="div_language">
-                        <h1 class="mb-3 text-light">Say Hey Otis <img src="../static/assets/orb.gif" alt="Orb"
+                        <h1 class="mb-3 text-light">Say Hey Otis <img src="./assets/orb.gif" alt="Orb"
                                 style="width:88px;height:66px;"></h1>
                         <!-- <select class="form-select bg-secondary text-light" id="select_language" onchange="updateCountry()"></select> -->
                         <!-- <select class="form-select bg-secondary text-light mt-2" id="select_dialect"></select> -->
@@ -263,7 +250,7 @@
             </div>
             <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                    <img id="myImg" src="../static/assets/floor_plan.png" alt="floor 4"
+                    <img id="myImg" src="./assets/floor_plan.jpg" alt="floor 2"
                         style="width:100%;max-width:320px">
                     &nbsp;&nbsp;&nbsp;&nbsp;tap to enlarge
 
@@ -309,6 +296,6 @@
 
 
 </body>
-<script src="{{url_for('static', filename='scripts/heyotis.js')}}"></script>
+<script src="heyotis.js"></script>
 
 </html>
